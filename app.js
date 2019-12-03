@@ -37,12 +37,10 @@ function handleGetPokemon(req, res){
 
   if (req.query.name) {
     response = response.filter(pokemon =>
-      // case insensitive searching
       pokemon.name.toLowerCase().includes(req.query.name.toLowerCase())
     );
   }
-
-  // filter our pokemon by type if type query param is present
+  
   if (req.query.type) {
     response = response.filter(pokemon =>
       pokemon.type.includes(req.query.type)
