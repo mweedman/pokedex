@@ -5,7 +5,9 @@ const pokedex = require('./pokedex.json');
 console.log('API_TOKEN: ', process.env.API_TOKEN);
 const app = express();
 
-app.use(morgan('dev'));
+ const morganSetting = process.env.NODE_ENV === 'production' ? 'tiny' : 'common'
+
+app.use(morgan(morganSetting));
 
 app.use(validateBearerToken);
 
@@ -50,7 +52,7 @@ function handleGetPokemon(req, res){
   res.json(response);
 }
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 const base = 'http://localhost:';
 app.listen(PORT, () => {
   console.log(`Express server is listening on ${base}${PORT}!`);

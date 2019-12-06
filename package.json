@@ -13,6 +13,9 @@
     "url": "git+https://github.com/mweedman/pokedex.git"
   },
   "keywords": [],
+  "engines": {
+    "node": "v12.13.0"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
